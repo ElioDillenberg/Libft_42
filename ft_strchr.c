@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edillenb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 15:30:58 by edillenb          #+#    #+#             */
-/*   Updated: 2019/04/12 16:41:23 by edillenb         ###   ########.fr       */
+/*   Created: 2019/04/05 02:33:10 by edillenb          #+#    #+#             */
+/*   Updated: 2019/04/12 16:36:54 by edillenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-int		ft_atoi(const char *str)
+char	*ft_strchr(const char *s, int c)
 {
-	int			i;
-	int			sign;
-	int			atoi;
-
-	atoi = 0;
-	i = 0;
-	sign = 1;
-	while (str[i] == 32 || (9 <= str[i] && str[i] <= 13))
-		i++;
-	if (str[i] == 45)
+	while (*s)
 	{
-		sign = -1;
-		i++;
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
 	}
-	else if (str[i] == 43)
-		i++;
-	while (ft_isdigit(str[i]))
-	{
-		atoi = atoi * 10 + (str[i] - 48);
-		i++;
-	}
-	return (atoi * sign);
+	if (c == 0)
+		return ((char *)s);
+	return (NULL);
 }

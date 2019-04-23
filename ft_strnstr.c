@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edillenb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 15:30:58 by edillenb          #+#    #+#             */
-/*   Updated: 2019/04/12 16:41:23 by edillenb         ###   ########.fr       */
+/*   Created: 2019/04/05 04:54:06 by edillenb          #+#    #+#             */
+/*   Updated: 2019/04/12 16:38:53 by edillenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-int		ft_atoi(const char *str)
+char		*ft_strnstr(const char *hstck, const char *ndl, size_t len)
 {
-	int			i;
-	int			sign;
-	int			atoi;
+	size_t i;
+	size_t j;
 
-	atoi = 0;
 	i = 0;
-	sign = 1;
-	while (str[i] == 32 || (9 <= str[i] && str[i] <= 13))
-		i++;
-	if (str[i] == 45)
+	j = 0;
+	if (hstck[0] == '\0' && ndl[0] == '\0')
+		return ((char *)&hstck[0]);
+	while (hstck[i] && i <= len)
 	{
-		sign = -1;
-		i++;
+		while (hstck[i + j] == ndl[j] && ndl[j] && (i + j) < len)
+			j++;
+		if (ndl[j] == '\0')
+			return ((char *)&hstck[i]);
+		else
+		{
+			i++;
+			j = 0;
+		}
 	}
-	else if (str[i] == 43)
-		i++;
-	while (ft_isdigit(str[i]))
-	{
-		atoi = atoi * 10 + (str[i] - 48);
-		i++;
-	}
-	return (atoi * sign);
+	return (NULL);
 }

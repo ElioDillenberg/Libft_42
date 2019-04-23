@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edillenb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 15:30:58 by edillenb          #+#    #+#             */
-/*   Updated: 2019/04/12 16:41:23 by edillenb         ###   ########.fr       */
+/*   Created: 2019/04/10 12:54:29 by edillenb          #+#    #+#             */
+/*   Updated: 2019/04/11 19:46:04 by edillenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_atoi(const char *str)
+int		ft_strequ(char const *s1, char const *s2)
 {
-	int			i;
-	int			sign;
-	int			atoi;
+	unsigned int	i;
 
-	atoi = 0;
 	i = 0;
-	sign = 1;
-	while (str[i] == 32 || (9 <= str[i] && str[i] <= 13))
+	if (s1 == 0 || s2 == 0)
+		return (0);
+	while ((s1[i] == s2[i]) && s1[i] && s2[i])
 		i++;
-	if (str[i] == 45)
-	{
-		sign = -1;
-		i++;
-	}
-	else if (str[i] == 43)
-		i++;
-	while (ft_isdigit(str[i]))
-	{
-		atoi = atoi * 10 + (str[i] - 48);
-		i++;
-	}
-	return (atoi * sign);
+	if (s1[i] - s2[i] == 0)
+		return (1);
+	return (0);
 }

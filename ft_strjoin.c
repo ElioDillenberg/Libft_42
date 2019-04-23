@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edillenb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 15:30:58 by edillenb          #+#    #+#             */
-/*   Updated: 2019/04/12 16:41:23 by edillenb         ###   ########.fr       */
+/*   Created: 2019/04/10 14:13:05 by edillenb          #+#    #+#             */
+/*   Updated: 2019/04/12 16:52:11 by edillenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int			i;
-	int			sign;
-	int			atoi;
+	char			*result;
+	unsigned int	i;
+	unsigned int	j;
 
-	atoi = 0;
+	j = 0;
 	i = 0;
-	sign = 1;
-	while (str[i] == 32 || (9 <= str[i] && str[i] <= 13))
-		i++;
-	if (str[i] == 45)
+	if (s1 == 0 || s2 == 0)
+		return (NULL);
+	if (!(result = ft_strnew(ft_strlen(s1) + ft_strlen(s2))))
+		return (NULL);
+	while (s1[i])
 	{
-		sign = -1;
+		result[i] = s1[i];
 		i++;
 	}
-	else if (str[i] == 43)
-		i++;
-	while (ft_isdigit(str[i]))
+	while (s2[j])
 	{
-		atoi = atoi * 10 + (str[i] - 48);
+		result[i] = s2[j];
 		i++;
+		j++;
 	}
-	return (atoi * sign);
+	return (result);
 }

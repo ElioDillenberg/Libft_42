@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edillenb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 15:30:58 by edillenb          #+#    #+#             */
-/*   Updated: 2019/04/12 16:41:23 by edillenb         ###   ########.fr       */
+/*   Created: 2019/04/08 15:14:07 by edillenb          #+#    #+#             */
+/*   Updated: 2019/04/12 16:33:26 by edillenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-int		ft_atoi(const char *str)
+void		*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	int			i;
-	int			sign;
-	int			atoi;
+	unsigned char	*cpydst;
+	unsigned char	*cpysrc;
+	size_t			i;
 
-	atoi = 0;
+	cpydst = (unsigned char *)dst;
+	cpysrc = (unsigned char *)src;
 	i = 0;
-	sign = 1;
-	while (str[i] == 32 || (9 <= str[i] && str[i] <= 13))
-		i++;
-	if (str[i] == 45)
+	while (i < n)
 	{
-		sign = -1;
+		cpydst[i] = cpysrc[i];
+		if (cpydst[i] == (unsigned char)c)
+			return (&cpydst[i + 1]);
 		i++;
 	}
-	else if (str[i] == 43)
-		i++;
-	while (ft_isdigit(str[i]))
-	{
-		atoi = atoi * 10 + (str[i] - 48);
-		i++;
-	}
-	return (atoi * sign);
+	return (NULL);
 }

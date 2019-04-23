@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edillenb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 15:30:58 by edillenb          #+#    #+#             */
-/*   Updated: 2019/04/12 16:41:23 by edillenb         ###   ########.fr       */
+/*   Created: 2019/04/09 18:49:30 by edillenb          #+#    #+#             */
+/*   Updated: 2019/04/12 16:57:30 by edillenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int			i;
-	int			sign;
-	int			atoi;
+	unsigned int store;
 
-	atoi = 0;
-	i = 0;
-	sign = 1;
-	while (str[i] == 32 || (9 <= str[i] && str[i] <= 13))
-		i++;
-	if (str[i] == 45)
+	if (n < 0)
 	{
-		sign = -1;
-		i++;
+		ft_putchar_fd('-', fd);
+		store = n * -1;
 	}
-	else if (str[i] == 43)
-		i++;
-	while (ft_isdigit(str[i]))
-	{
-		atoi = atoi * 10 + (str[i] - 48);
-		i++;
-	}
-	return (atoi * sign);
+	else
+		store = n;
+	if (store >= 10)
+		ft_putnbr_fd(store / 10, fd);
+	ft_putchar_fd(store % 10 + 48, fd);
 }

@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edillenb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 15:30:58 by edillenb          #+#    #+#             */
-/*   Updated: 2019/04/12 16:41:23 by edillenb         ###   ########.fr       */
+/*   Created: 2019/04/05 04:25:14 by edillenb          #+#    #+#             */
+/*   Updated: 2019/04/12 16:37:24 by edillenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-int		ft_atoi(const char *str)
+char		*ft_strstr(const char *haystack, const char *needle)
 {
-	int			i;
-	int			sign;
-	int			atoi;
+	int i;
+	int j;
 
-	atoi = 0;
 	i = 0;
-	sign = 1;
-	while (str[i] == 32 || (9 <= str[i] && str[i] <= 13))
-		i++;
-	if (str[i] == 45)
+	j = 0;
+	if (haystack[0] == '\0' && needle[0] == '\0')
+		return ((char *)&haystack[0]);
+	while (haystack[i])
 	{
-		sign = -1;
-		i++;
+		while (haystack[i + j] == needle[j] && needle[j])
+			j++;
+		if (needle[j] == '\0')
+			return ((char *)&haystack[i]);
+		else
+		{
+			i++;
+			j = 0;
+		}
 	}
-	else if (str[i] == 43)
-		i++;
-	while (ft_isdigit(str[i]))
-	{
-		atoi = atoi * 10 + (str[i] - 48);
-		i++;
-	}
-	return (atoi * sign);
+	return (NULL);
 }
