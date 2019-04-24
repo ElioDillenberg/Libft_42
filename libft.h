@@ -6,7 +6,7 @@
 /*   By: edillenb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 18:39:30 by edillenb          #+#    #+#             */
-/*   Updated: 2019/04/13 17:14:41 by edillenb         ###   ########.fr       */
+/*   Updated: 2019/04/24 10:49:42 by edillenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define LIBFT_H
 
 # include <string.h>
+# include <limits.h>
+
+# define BUFF_SIZE 32
+# define OM OPEN_MAX
 
 typedef struct		s_list
 {
@@ -21,6 +25,14 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct		s_node
+{
+	int				key;
+	size_t			str_size;
+	char			*str;
+	struct s_node	*next;
+}					t_node;
 
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
@@ -85,5 +97,6 @@ void				ft_lstrev(t_list **alst);
 void				ft_lstputstr(t_list **alst);
 size_t				ft_lstlen(t_list **alst);
 void				ft_putstrclr(const char *s, const char *color_input);
+int					get_next_line(const int fd, char **line);
 
 #endif

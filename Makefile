@@ -6,7 +6,7 @@
 #    By: edillenb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/02 11:28:49 by edillenb          #+#    #+#              #
-#    Updated: 2019/04/13 17:24:38 by edillenb         ###   ########.fr        #
+#    Updated: 2019/04/24 10:50:31 by edillenb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,8 @@ SOURCES = ft_memset.c \
 		  ft_lstrev.c \
 		  ft_lstputstr.c \
 		  ft_lstlen.c \
-		  ft_putstrclr.c
+		  ft_putstrclr.c \
+		  get_next_line.c
 
 OBJECTS = ft_memset.o \
 		  ft_bzero.o \
@@ -138,7 +139,8 @@ OBJECTS = ft_memset.o \
 		  ft_lstrev.o \
 		  ft_lstputstr.o \
 		  ft_lstlen.o \
-		  ft_putstrclr.o
+		  ft_putstrclr.o \
+		  get_next_line.o
 
 all: $(NAME)
 
