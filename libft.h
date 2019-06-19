@@ -6,7 +6,7 @@
 /*   By: edillenb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 18:39:30 by edillenb          #+#    #+#             */
-/*   Updated: 2019/04/24 10:49:42 by edillenb         ###   ########.fr       */
+/*   Updated: 2019/06/19 17:13:31 by edillenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 # define BUFF_SIZE 32
 # define OM OPEN_MAX
+# define ULL unsigned long long
 
 typedef struct		s_list
 {
@@ -98,5 +99,18 @@ void				ft_lstputstr(t_list **alst);
 size_t				ft_lstlen(t_list **alst);
 void				ft_putstrclr(const char *s, const char *color_input);
 int					get_next_line(const int fd, char **line);
+char				*ft_bitoa(void *input, size_t size);
+void				*ft_free_stropt(char **s1, char **s2, char option);
+char				*ft_str_add(char **s1, char **s2, char option);
+char				*ft_strjoinfr(char **s1, char **s2, char option);
+char				*ft_str_up(char *s);
+char				*ft_hexatoa(unsigned long long nbr);
+char				*ft_octatoa(unsigned long long nbr);
+char				*ft_lltoa(long long nbr);
+char				*ft_llutoa(unsigned long long nbr);
+void				ft_putnstr(const char *s, size_t n);
+void				ft_swap(int	*a, int *b);
+ULL					ft_po(ULL nb, int po);
+int					ft_sqrt(int nb);
 
 #endif
