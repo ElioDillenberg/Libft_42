@@ -6,7 +6,7 @@
 #    By: edillenb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/02 11:28:49 by edillenb          #+#    #+#              #
-#    Updated: 2019/06/19 16:58:53 by edillenb         ###   ########.fr        #
+#    Updated: 2019/06/20 15:55:19 by edillenb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,13 +88,26 @@ SOURCES = ft_memset.c \
 		  ft_str_add.c \
 		  ft_swap.c \
 		  ft_strjoinfr.c \
-		  ft_str_up.c
+		  ft_str_up.c \
+		  ft_printf.c \
+		  convert.c \
+		  flag.c \
+		  float_a.c \
+		  float_b.c \
+		  cast_arg.c \
+		  malloc_str.c \
+		  fill_str.c \
+		  ft_printf.c \
+		  tools.c \
+		  fill_float.c \
+		  floatools.c \
+		  color.c
 
 OBJECTS = $(SOURCES:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS) Makefile libft.h
+$(NAME): $(OBJECTS) Makefile libft.h ft_printf.h
 	@gcc -Wall -Werror -Wextra -c $(SOURCES)
 	@ar rc $(NAME) $(OBJECTS)
 	@ranlib $(NAME)

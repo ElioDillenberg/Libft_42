@@ -6,7 +6,7 @@
 /*   By: edillenb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 14:26:16 by edillenb          #+#    #+#             */
-/*   Updated: 2019/04/11 20:02:09 by edillenb         ###   ########.fr       */
+/*   Updated: 2019/06/20 15:59:14 by edillenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_strtrim(char const *s)
 	if (i != len)
 		while (s[len - 1] == ' ' || s[len - 1] == '\n' || s[len - 1] == '\t')
 			len--;
-	if (!(result = ft_strsub(s, i, (len - i))))
+	if (!(result = ft_strsub((const char**)&s, i, (len - i), 0)))
 		return (NULL);
 	return (result);
 }

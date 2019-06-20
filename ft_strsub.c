@@ -6,26 +6,23 @@
 /*   By: edillenb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 13:22:01 by edillenb          #+#    #+#             */
-/*   Updated: 2019/04/12 16:52:00 by edillenb         ###   ########.fr       */
+/*   Updated: 2019/06/20 15:35:32 by edillenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+char	*ft_strsub(char const **s, unsigned int strt, size_t ln, int o)
 {
-	char			*result;
-	unsigned int	i;
+	char	*new;
+	size_t	i;
 
 	i = 0;
-	if (s == 0)
+	if (!s || !(new = ft_strnew(ln)))
 		return (NULL);
-	if (!(result = ft_strnew(len)))
-		return (NULL);
-	while (len > 0)
-	{
-		result[i++] = s[start++];
-		len--;
-	}
-	return (result);
+	while (ln--)
+		new[i++] = (*s)[strt++];
+	if (o == 1)
+		ft_memdel((void**)s);
+	return (new);
 }
