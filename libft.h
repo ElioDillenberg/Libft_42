@@ -6,7 +6,7 @@
 /*   By: edillenb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 18:39:30 by edillenb          #+#    #+#             */
-/*   Updated: 2019/06/20 16:21:29 by edillenb         ###   ########.fr       */
+/*   Updated: 2019/09/18 14:06:49 by thallot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,24 @@
 # include <string.h>
 # include <limits.h>
 
-# define BUFF_SIZE 32
+# define BUFF_SIZE 10
 # define OM OPEN_MAX
 # define ULL unsigned long long
 
-typedef struct		s_list
+typedef struct	s_list
 {
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
-}					t_list;
+}				t_list;
 
-typedef struct		s_node
+typedef struct	s_node
 {
 	int				key;
 	size_t			str_size;
 	char			*str;
 	struct s_node	*next;
-}					t_node;
+}				t_node;
 
 void			*ft_memset(void *b, int c, size_t len);
 void			ft_bzero(void *s, size_t n);
@@ -98,7 +98,8 @@ void			ft_lstrev(t_list **alst);
 void			ft_lstputstr(t_list **alst);
 size_t			ft_lstlen(t_list **alst);
 void			ft_putstrclr(const char *s, const char *color_input);
-int				get_next_line(const int fd, char **line);
+int				get_next_line_multi(const int fd, char **line);
+int				get_next_line(const int fd, char **line, int opt, int ret);
 char			*ft_bitoa(void *input, size_t size);
 void			*ft_free_stropt(char **s1, char **s2, char option);
 char			*ft_str_add(char **s1, char **s2, char option);
@@ -113,5 +114,6 @@ void			ft_swap(int	*a, int *b);
 ULL				ft_po(ULL nb, int po);
 int				ft_sqrt(int nb);
 int				ft_printf(const char *fmt, ...);
+size_t			ft_atoui(const char *str);
 
 #endif

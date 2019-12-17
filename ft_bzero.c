@@ -6,7 +6,7 @@
 /*   By: edillenb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 13:33:22 by edillenb          #+#    #+#             */
-/*   Updated: 2019/04/12 16:33:13 by edillenb         ###   ########.fr       */
+/*   Updated: 2019/08/12 12:07:46 by edillenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void		ft_bzero(void *s, size_t n)
 		return ;
 	while (n > 0)
 	{
-		*result = '\0';
+		*result = 0;
 		result++;
 		n--;
 	}

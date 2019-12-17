@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_atoui.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edillenb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/10 13:22:01 by edillenb          #+#    #+#             */
-/*   Updated: 2019/07/23 19:15:53 by edillenb         ###   ########.fr       */
+/*   Created: 2019/07/22 16:43:22 by edillenb          #+#    #+#             */
+/*   Updated: 2019/07/22 16:43:44 by edillenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(const char **s, unsigned int strt, size_t ln, int o)
+size_t	ft_atoui(const char *str)
 {
-	char	*new;
 	size_t	i;
+	size_t	atoui;
 
+	atoui = 0;
 	i = 0;
-	if (!s || !(new = ft_strnew(ln)))
-		return (NULL);
-	while (ln--)
-		new[i++] = (*s)[strt++];
-	if (o == 1)
-		ft_memdel((void**)s);
-	return (new);
+	while ((str[i] == 32 || (9 <= str[i] && str[i] <= 13)) && str[i])
+		i++;
+	while (ft_isdigit(str[i]) && str[i])
+	{
+		atoui = atoui * 10 + (str[i] - 48);
+		i++;
+	}
+	return (atoui);
 }
