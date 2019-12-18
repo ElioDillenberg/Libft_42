@@ -13,3 +13,5 @@ Therefore the first project for all students is to create our own C library whic
 You can now use the generated libft.a file and the libft.h file within your projects to have access to the functions of my Library.
 
 Enjoy!
+
+NB: The official project subject can be found as PDF in the subject folder.
