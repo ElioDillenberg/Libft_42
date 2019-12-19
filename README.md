@@ -6,9 +6,11 @@ Therefore the first project for all students is to create our own C library whic
 
 # How to run:
 
-- git clone https://github.com/ElioDillenberg/Libft_42.git libft
-- cd libft
-- make
+<pre>
+git clone https://github.com/ElioDillenberg/Libft_42.git libft
+cd libft
+make
+</pre>
 
 You can now use the generated libft.a file and the libft.h file within your projects to have access to the functions of my Library.
 
